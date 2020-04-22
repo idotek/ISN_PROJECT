@@ -12,8 +12,6 @@ class Personnage:
         self.haut_marche = pygame.image.load(haut_marche).convert_alpha()
         self.bas = pygame.image.load(bas).convert_alpha()
         self.bas_marche = pygame.image.load(bas_marche).convert_alpha()
-        git
-        init
         self.marche = marche
         self.nom = nom
         self.case_x = 2
