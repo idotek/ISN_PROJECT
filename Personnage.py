@@ -12,8 +12,7 @@ class Personnage:
         self.haut_marche = pygame.image.load(haut_marche).convert_alpha()
         self.bas = pygame.image.load(bas).convert_alpha()
         self.bas_marche = pygame.image.load(bas_marche).convert_alpha()
-        git
-        init
+
         self.marche = marche
         self.nom = nom
         self.case_x = 2
@@ -37,7 +36,7 @@ class Personnage:
                 #if self.stage.structure[self.case_x + 1][self.case_y] == "m": return
 
                 #SI y'a pas d'obs on change de case
-                self.case_x += 1
+                self.case_x += 0.3
                 self.x = self.case_x * coeff
             if self.marche == False:
                 self.direction = self.droite
@@ -50,7 +49,7 @@ class Personnage:
             if self.case_x > 0:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_x -= 1
+                self.case_x -= 0.3
                 self.x = self.case_x * coeff
 
             if self.marche == False:
@@ -64,7 +63,7 @@ class Personnage:
             if self.case_y > 0:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_y -= 1
+                self.case_y -= 0.3
                 self.y = self.case_y * coeff
 
             if self.marche == False:
@@ -78,7 +77,7 @@ class Personnage:
             if self.case_y < 17:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_y += 1
+                self.case_y += 0.3
                 self.y = self.case_y * coeff
 
             if self.marche == False:
