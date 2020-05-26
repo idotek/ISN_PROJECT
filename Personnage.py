@@ -23,21 +23,17 @@ class Personnage:
         self.direction = self.bas # Premier sprite, il regarde obligatoirement vers le bas a la première apparition.
 
         self.stage = stage # On recupere la première case ( stage 1 )   // ce déplacer -> est-ce que sur la case ou je veux aller il y'a qqch ?
-                        # -> Alors moi je vais regarder dans ma map (txt)
-                        # -> Si y'a lettre obs je ne bouge pas
-                        # -> Si y'a pas alors je me déplace (Je change de case de direction, récupérer les coordonnées  -> tout ces éléments sont récup depuis le stage
+                           # -> Alors moi je vais regarder dans ma map (txt)
+                           # -> Si y'a lettre obs je ne bouge pas
+                           # -> Si y'a pas alors je me déplace (Je change de case de direction, récupérer les coordonnées  -> tout ces éléments sont récup depuis le stage
 
     def moove(self, direction):
 
         if direction == "droite":
             if self.case_x < 31:
-                #TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
-
-                #if self.stage.structure[self.case_x + 1][self.case_y] == "m": return
-
-                #SI y'a pas d'obs on change de case
-                self.case_x += 0.3
-                self.x = self.case_x * coeff
+                if self.stage.structure_copy[self.case_y][self.case_x + 1] != 'w':
+                    self.case_x += 1
+                    self.x = self.case_x * coeff
             if self.marche == False:
                 self.direction = self.droite
                 self.marche = True
@@ -49,9 +45,9 @@ class Personnage:
             if self.case_x > 0:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_x -= 0.3
-                self.x = self.case_x * coeff
-
+                if self.stage.structure_copy[self.case_y][self.case_x - 1] != 'w':
+                    self.case_x -= 1
+                    self.x = self.case_x * coeff
             if self.marche == False:
                 self.direction = self.gauche
                 self.marche = True
@@ -63,9 +59,9 @@ class Personnage:
             if self.case_y > 0:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_y -= 0.3
-                self.y = self.case_y * coeff
-
+                if self.stage.structure_copy[self.case_y - 1][self.case_x] != 'w':
+                    self.case_y -= 1
+                    self.y = self.case_y * coeff
             if self.marche == False:
                 self.direction = self.haut
                 self.marche = True
@@ -77,9 +73,9 @@ class Personnage:
             if self.case_y < 17:
                 # TOUT LES OBSTABLES DOIVENT ËTRE VERIFIER
                 # SI y'a pas d'obs on change de case
-                self.case_y += 0.3
-                self.y = self.case_y * coeff
-
+                if self.stage.structure_copy[self.case_y + 1][self.case_x] != 'w':
+                    self.case_y += 1
+                    self.y = self.case_y * coeff
             if self.marche == False:
                 self.direction = self.bas
                 self.marche = True
